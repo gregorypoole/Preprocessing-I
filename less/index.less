@@ -4,56 +4,260 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Variables */
+@font: 'Anton', sans-serif;
+@textcolor: #282828;
+
+/*Mixins */
+.flexWrap{
+	display:flex;
+	flex-wrap: wrap;
 }
 
-html, body {
-    height: 100%;
+
+html,
+body {
+  height: 100%;
+  margin:0;
+  padding:0;
+  background: #c9ca74;
 }
+header {
+	width: 100%;
+	height: 70px;
+	background-color: #282828;
+	h1 {
+		position: absolute;
+		padding: 3px;
+		float: left;
+		margin-left: 3%;
+		margin-top: 25px;
+		color:#c9ca74;
+		font-family: @font;
+	}
+	span {
+		color: #ffffff;
+	}
+	ul {
+		width:auto;
+		float: right;
+		margin-top: 8px;
+	}
+	li {
+		display: inline-block;
+		padding: 15px 30px;
+	}
+	a {
+		text-align: center;
+		color: #ffffff;
+		font-family: @font;
+	}
+	a&hover{
+		color:orange;
+	}
+@media(max-width: 500px){
+nav, ul{
+background-color:#c9ca74;
+display: flex;
+width: 100%;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: black;
+}
+h1, span {
+	display: none;
+}
+}
+}
+.bigContainer {
+	width:100%;
+	.flexWrap();
+	h2{
+		font-family: @font;
+		color: @textcolor;
+		font-size: 2rem;
+	}
+	.rightContent{
+		width:50%;
+		padding-left: 10%;
+		text-align: right;
+		img {
+			width: 80%;
+			padding-top: 50px;
+		}
+	}
+	.leftContent{
+		padding-top: 50px;
+		width: 50%;
+		text-align: center;
+		line-height: 2;
+	}
+	@media(max-width: 500px){
+		.rightContent, .leftContent {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			width: 100%;
+			text-align: center;
+			padding: 0;
+			align-items: center;
+		}
+		img {
+			margin-top: 20%;
+			margin-bottom: 10%;
+			
+		}
+	}
+}
+button {
+	width:20%;
+	height:40px;
+	background-color:purple; 
+  }
+  .button{
+	display:flex;
+	justify-content:center;
+	height: 200px;
+	align-items:center;
+  }
+  @keyframes exp{
+   from {background-color:purple;}
+	to {background-color: #c9ca74;}
+  }
+  button:hover{
+	animation-name:exp;
+	animation-duration:1s;
+	background-color:purple;
+  }
+
 
